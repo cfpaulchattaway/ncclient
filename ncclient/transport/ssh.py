@@ -171,6 +171,8 @@ class SSHSession(Session):
             bind_addr           = None,
             sock                = None,
             keepalive           = None,
+	    banner_timeout      = None,
+	    auth_timeout	= None,
             environment         = None):
 
         """Connect via SSH and initialize the NETCONF session. First attempts the publickey authentication method and then password authentication.
@@ -208,6 +210,10 @@ class SSHSession(Session):
         *sock* is an already open Python socket to be used for this connection.
 
         *keepalive* Turn on/off keepalive packets (default is off). If this is set, after interval seconds without sending any data over the connection, a "keepalive" packet will be sent (and ignored by the remote host). This can be useful to keep connections alive over a NAT.
+
+	*banner_timeout* Paramiko banner timeout setting defaulted to 15 seconds.
+
+	*auth_timeout* Paramiko auth timeout setting defaulted to 15 seconds.
 
         *environment* a dictionary containing the name and respective values to set
         """
