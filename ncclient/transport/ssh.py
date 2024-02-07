@@ -373,6 +373,9 @@ class SSHSession(Session):
         if banner_timeout:
             self._transport.banner_timeout = banner_timeout
 
+        if auth_timeout:
+            self._transport.auth_timeout = auth_timeout
+
         # TODO: leopoul: Review, test, and if needed rewrite this part
         subsystem_names = self._device_handler.get_ssh_subsystem_names()
         for subname in subsystem_names:
